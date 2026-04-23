@@ -31,19 +31,20 @@ export function ProfileHeader() {
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground md:justify-start">
             <span className="inline-flex items-center gap-1.5">
               <Briefcase className="h-4 w-4" aria-hidden="true" />
-              Développeur Full-Stack
+              Data Scientist · Ingénieur logiciel · IA & DevOps
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="h-4 w-4" aria-hidden="true" />
-              Libreville, Gabon
+              Dakar, Sénégal
             </span>
           </div>
 
           <div className="mt-1 flex flex-wrap justify-center gap-2 md:justify-start">
-            <Badge variant="secondary">Next.js</Badge>
+            <Badge variant="secondary">Data Science</Badge>
+            <Badge variant="secondary">IA</Badge>
+            <Badge variant="secondary">DevOps</Badge>
+            <Badge variant="secondary">Full-Stack</Badge>
             <Badge variant="secondary">TypeScript</Badge>
-            <Badge variant="secondary">React</Badge>
-            <Badge variant="secondary">Node.js</Badge>
           </div>
         </div>
       </div>
