@@ -1,6 +1,7 @@
 import { ProfileHeader } from "@/components/profile-header"
 import { ProfileBio } from "@/components/profile-bio"
 import { ProfileContact } from "@/components/profile-contact"
+import { ContactForm } from "@/components/contact-form"
 
 export default function Page() {
   return (
@@ -16,6 +17,10 @@ export default function Page() {
             <ProfileContact />
           </div>
         </div>
+
+        <section id="contact" className="mt-10 md:mt-12">
+          <ContactForm />
+        </section>
       </div>
     </main>
   )

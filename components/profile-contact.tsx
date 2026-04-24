@@ -17,8 +17,8 @@ const primaryContacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "merphy.mademba@example.com",
-    href: "mailto:merphy.mademba@example.com",
+    value: "merphy97@gmail.com",
+    href: "mailto:merphy97@gmail.com",
   },
   {
     icon: Phone,
@@ -63,7 +63,7 @@ const socialLinks = [
     icon: MessageCircle,
     label: "Discord",
     value: "Merph-dev",
-    href: "#",
+    href: "https://discord.com/users/1411101021286961223",
   },
 ]
 
