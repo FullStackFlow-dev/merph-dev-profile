@@ -1,8 +1,21 @@
+/* ------------------------------------------------------------------
+   globals.css — Styles globaux et système de design
+   ------------------------------------------------------------------
+   - Utilise TailwindCSS v4 + shadcn/ui
+   - Définit les tokens de couleurs (clair/sombre) via OKLCH
+   - Ajoute une classe utilitaire ".glow-card" qui fait briller les
+     cartes en bleu professionnel au survol / au focus clavier.
+   ------------------------------------------------------------------ */
+
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================
+   THÈME CLAIR (conservé pour compatibilité, non utilisé par
+   défaut puisque l'app force le mode sombre sur <html>).
+   ========================================================= */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -28,7 +41,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -37,43 +50,61 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Couleur d'accent pour l'effet "halo" bleu professionnel */
+  --glow: oklch(0.72 0.14 230);           /* bleu ciel saturé */
+  --glow-soft: oklch(0.72 0.14 230 / 0.25); /* version translucide */
 }
 
+/* =========================================================
+   THÈME SOMBRE — "NOIR CLAIR"
+   - Fond principal: gris très sombre (pas noir pur)
+   - Cartes: légèrement plus claires pour la profondeur
+   - Accent: bleu ciel professionnel utilisé pour le "glow"
+   ========================================================= */
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.16 0.005 240);      /* noir clair bleuté */
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: oklch(0.22 0.008 240);            /* carte un peu plus claire */
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
+  --popover: oklch(0.22 0.008 240);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: oklch(0.72 0.14 230);          /* bleu accent */
+  --primary-foreground: oklch(0.16 0.005 240);
+  --secondary: oklch(0.27 0.01 240);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: oklch(0.27 0.01 240);
+  --muted-foreground: oklch(0.72 0.005 240);
+  --accent: oklch(0.3 0.02 230);
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.3 0.01 240);
+  --input: oklch(0.3 0.01 240);
+  --ring: oklch(0.72 0.14 230);             /* bleu focus */
+  --chart-1: oklch(0.72 0.14 230);
+  --chart-2: oklch(0.7 0.17 162);
+  --chart-3: oklch(0.77 0.19 70);
+  --chart-4: oklch(0.63 0.26 300);
+  --chart-5: oklch(0.64 0.24 16);
+  --sidebar: oklch(0.2 0.008 240);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-primary: oklch(0.72 0.14 230);
+  --sidebar-primary-foreground: oklch(0.16 0.005 240);
+  --sidebar-accent: oklch(0.27 0.01 240);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-border: oklch(0.3 0.01 240);
+  --sidebar-ring: oklch(0.72 0.14 230);
+
+  /* Halo bleu — utilisé pour les effets hover/focus sur les cartes */
+  --glow: oklch(0.78 0.16 230);
+  --glow-soft: oklch(0.78 0.16 230 / 0.35);
 }
 
+/* =========================================================
+   Liaison des tokens CSS → tokens Tailwind (v4)
+   Permet d'utiliser bg-background, text-foreground, etc.
+   ========================================================= */
 @theme inline {
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
@@ -116,10 +147,77 @@
 }
 
 @layer base {
+  /* Bordures et anneaux de focus partagés */
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* =========================================================
+   CLASSES UTILITAIRES CUSTOM
+   ========================================================= */
+@layer utilities {
+  /*
+   * .glow-card
+   * Applique un halo bleu professionnel au survol et au focus clavier.
+   * Transition douce pour un rendu élégant.
+   */
+  .glow-card {
+    transition:
+      box-shadow 300ms ease,
+      border-color 300ms ease,
+      transform 300ms ease;
+  }
+  .glow-card:hover,
+  .glow-card:focus-within {
+    border-color: var(--glow);
+    box-shadow:
+      0 0 0 1px var(--glow),
+      0 0 24px 0 var(--glow-soft),
+      0 8px 24px -8px rgb(0 0 0 / 0.5);
+  }
+
+  /*
+   * .avatar-frame
+   * Cadre décoratif autour de l'avatar : dégradé conique subtil
+   * simulant un anneau métallisé bleu/argent, très "premium".
+   */
+  .avatar-frame {
+    background:
+      conic-gradient(
+        from 140deg,
+        oklch(0.78 0.16 230) 0deg,
+        oklch(0.98 0 0) 80deg,
+        oklch(0.55 0.12 230) 180deg,
+        oklch(0.98 0 0) 280deg,
+        oklch(0.78 0.16 230) 360deg
+      );
+  }
+
+  /*
+   * .header-banner
+   * Bannière décorative du header : dégradé sombre élégant avec
+   * une touche de bleu saphir, agrémenté d'un motif en mesh subtil.
+   */
+  .header-banner {
+    background:
+      radial-gradient(
+        120% 120% at 10% 0%,
+        oklch(0.35 0.09 230 / 0.8),
+        transparent 60%
+      ),
+      radial-gradient(
+        120% 120% at 90% 100%,
+        oklch(0.3 0.08 260 / 0.7),
+        transparent 55%
+      ),
+      linear-gradient(
+        135deg,
+        oklch(0.2 0.02 240),
+        oklch(0.24 0.03 230)
+      );
   }
 }

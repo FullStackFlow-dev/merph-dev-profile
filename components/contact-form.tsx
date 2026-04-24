@@ -1,5 +1,26 @@
 "use client"
 
+/**
+ * contact-form.tsx
+ * ---------------------------------------------------------------
+ * Formulaire de contact envoyé vers Formspree (HTTP POST).
+ *
+ * Fonctionnement :
+ *  1. L'utilisateur remplit nom / email / sujet / message.
+ *  2. handleSubmit empêche le rechargement, envoie les données
+ *     via fetch() au endpoint FORMSPREE_ENDPOINT.
+ *  3. L'état `status` pilote l'UI (loading, success, error).
+ *  4. Un champ caché "_gotcha" sert de piège anti-spam (honeypot).
+ *
+ * Pour modifier :
+ *  - Endpoint Formspree : constante FORMSPREE_ENDPOINT ci-dessous.
+ *  - Libellés / placeholders : directement dans le JSX.
+ *
+ * La classe "glow-card" fait briller le cadre en bleu au survol
+ * et pendant la saisie (focus-within sur un champ).
+ * ---------------------------------------------------------------
+ */
+
 import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,14 +31,20 @@ import { Label } from "@/components/ui/label"
 import { Spinner } from "@/components/ui/spinner"
 import { CheckCircle2, AlertCircle, Send } from "lucide-react"
 
+/* États possibles de la soumission du formulaire */
 type Status = "idle" | "loading" | "success" | "error"
 
+/* Endpoint Formspree à modifier ici si besoin (un seul endroit) */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdadyejk"
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle")
   const [errorMessage, setErrorMessage] = useState<string>("")
 
+  /**
+   * handleSubmit
+   * Gère l'envoi asynchrone du formulaire à Formspree.
+   */
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = event.currentTarget
@@ -34,9 +61,11 @@ export function ContactForm() {
       })
 
       if (response.ok) {
+        // Succès : on vide le formulaire et on affiche le message OK
         setStatus("success")
         form.reset()
       } else {
+        // Échec : on essaie de lire les erreurs renvoyées par Formspree
         const data = await response.json().catch(() => null)
         const message =
           data?.errors?.map((e: { message: string }) => e.message).join(", ") ||
@@ -45,13 +74,14 @@ export function ContactForm() {
         setErrorMessage(message)
       }
     } catch {
+      // Erreur réseau (hors ligne, DNS, etc.)
       setStatus("error")
       setErrorMessage("Impossible d'envoyer le message. Vérifiez votre connexion.")
     }
   }
 
   return (
-    <Card>
+    <Card className="glow-card">
       <CardHeader>
         <CardTitle className="text-lg">Envoyez-moi un message</CardTitle>
         <CardDescription>
@@ -60,6 +90,7 @@ export function ContactForm() {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
+          {/* Ligne 1 : Nom + Email (2 colonnes sur desktop) */}
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <Label htmlFor="name">Nom</Label>
@@ -87,6 +118,7 @@ export function ContactForm() {
             </div>
           </div>
 
+          {/* Sujet */}
           <div className="flex flex-col gap-2">
             <Label htmlFor="subject">Sujet</Label>
             <Input
@@ -99,6 +131,7 @@ export function ContactForm() {
             />
           </div>
 
+          {/* Message */}
           <div className="flex flex-col gap-2">
             <Label htmlFor="message">Message</Label>
             <Textarea
@@ -111,9 +144,17 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Honeypot anti-spam */}
-          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+          {/* Piège anti-spam (caché pour les humains, visible pour les bots) */}
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden="true"
+          />
 
+          {/* Zone de statut + bouton d'envoi */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div aria-live="polite" className="min-h-6 text-sm">
               {status === "success" && (

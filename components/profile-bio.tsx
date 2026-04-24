@@ -1,13 +1,29 @@
+/**
+ * profile-bio.tsx
+ * ---------------------------------------------------------------
+ * Carte "À propos" : biographie + parcours académique.
+ *
+ * Pour modifier :
+ *  - Les deux paragraphes de présentation sont dans les <p>.
+ *  - Le bloc "Parcours académique" (liste <ul>) contient les diplômes.
+ *    Chaque <li> = une ligne (statut à gauche + intitulé à droite).
+ *
+ * La classe "glow-card" ajoute l'effet de halo bleu au survol
+ * et lorsqu'un élément interne prend le focus (accessibilité clavier).
+ * ---------------------------------------------------------------
+ */
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { GraduationCap } from "lucide-react"
 
 export function ProfileBio() {
   return (
-    <Card>
+    <Card className="glow-card">
       <CardHeader>
         <CardTitle className="text-lg">À propos</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+        {/* Paragraphe 1 : présentation générale */}
         <p className="text-pretty">
           Bonjour, je suis <span className="font-medium text-foreground">Merphy Mademba</span>, alias{" "}
           <span className="font-mono text-foreground">Merph-dev</span>. Je suis{" "}
@@ -17,12 +33,15 @@ export function ProfileBio() {
           J&apos;aime concevoir des systèmes intelligents, fiables et utiles — de la donnée brute jusqu&apos;à la mise
           en production.
         </p>
+
+        {/* Paragraphe 2 : état d'esprit / valeurs professionnelles */}
         <p className="text-pretty">
           Curieux par nature, je me situe à l&apos;intersection du code, de la donnée et de l&apos;infrastructure.
           J&apos;accorde une attention particulière à la qualité, à l&apos;automatisation et à l&apos;impact concret de
           mes projets, tout en continuant à explorer de nouvelles technologies pour repousser mes limites.
         </p>
 
+        {/* Encadré "Parcours académique" */}
         <div className="rounded-lg border bg-secondary/40 p-4">
           <div className="mb-3 flex items-center gap-2 text-foreground">
             <GraduationCap className="h-5 w-5" aria-hidden="true" />
@@ -32,12 +51,14 @@ export function ProfileBio() {
             Université ENSUP Afrique — Dakar
           </p>
           <ul className="space-y-3">
+            {/* Diplôme en cours */}
             <li className="flex flex-col gap-0.5 md:flex-row md:items-baseline md:gap-3">
               <span className="shrink-0 font-mono text-xs text-muted-foreground">En cours</span>
               <span className="text-sm text-foreground">
                 Master en Entrepreneuriat et Création d&apos;Entreprises
               </span>
             </li>
+            {/* Diplôme obtenu */}
             <li className="flex flex-col gap-0.5 md:flex-row md:items-baseline md:gap-3">
               <span className="shrink-0 font-mono text-xs text-muted-foreground">Obtenue</span>
               <span className="text-sm text-foreground">

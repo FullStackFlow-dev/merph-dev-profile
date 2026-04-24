@@ -1,3 +1,18 @@
+/**
+ * profile-contact.tsx
+ * ---------------------------------------------------------------
+ * Carte "Contact" : coordonnées principales, réseaux sociaux,
+ * et bouton menant au portfolio.
+ *
+ * Pour modifier :
+ *  - `primaryContacts` : email, téléphone, localisation.
+ *  - `socialLinks`     : GitHub, LinkedIn, X, Instagram, Discord.
+ *  - Lien du portfolio : attribut `href` du <a> dans la section Portfolio.
+ *
+ * La classe "glow-card" déclenche le halo bleu au survol / focus.
+ * ---------------------------------------------------------------
+ */
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -13,6 +28,7 @@ import {
   Globe,
 } from "lucide-react"
 
+/* Coordonnées principales — modifiables facilement en une seule ligne */
 const primaryContacts = [
   {
     icon: Mail,
@@ -34,6 +50,7 @@ const primaryContacts = [
   },
 ]
 
+/* Réseaux sociaux — les icônes viennent de lucide-react */
 const socialLinks = [
   {
     icon: Github,
@@ -67,6 +84,7 @@ const socialLinks = [
   },
 ]
 
+/* Type décrivant une ligne de contact (utilisé par le composant ContactRow) */
 type ContactItem = {
   icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
   label: string
@@ -74,6 +92,12 @@ type ContactItem = {
   href: string
 }
 
+/**
+ * ContactRow
+ * Affiche une ligne cliquable avec icône, libellé et valeur.
+ * - S'ouvre dans un nouvel onglet si le lien est externe (http).
+ * - Changement de couleur au survol vers la couleur d'accent.
+ */
 function ContactRow({ icon: Icon, label, value, href }: ContactItem) {
   const isExternal = href.startsWith("http")
   return (
@@ -96,11 +120,12 @@ function ContactRow({ icon: Icon, label, value, href }: ContactItem) {
 
 export function ProfileContact() {
   return (
-    <Card>
+    <Card className="glow-card">
       <CardHeader>
         <CardTitle className="text-lg">Contact</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
+        {/* Section 1 : coordonnées principales (email, téléphone, localisation) */}
         <ul className="space-y-3">
           {primaryContacts.map((item) => (
             <li key={item.label}>
@@ -109,6 +134,7 @@ export function ProfileContact() {
           ))}
         </ul>
 
+        {/* Section 2 : réseaux sociaux */}
         <div className="space-y-3 border-t pt-4">
           <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Réseaux</p>
           <ul className="space-y-3">
@@ -120,6 +146,7 @@ export function ProfileContact() {
           </ul>
         </div>
 
+        {/* Section 3 : bouton vers le portfolio (modifier l'URL au besoin) */}
         <div className="border-t pt-4">
           <p className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Portfolio</p>
           <Button asChild className="w-full" size="lg">
