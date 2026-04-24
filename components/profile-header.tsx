@@ -44,7 +44,10 @@ export function ProfileHeader() {
             <Badge variant="secondary">IA</Badge>
             <Badge variant="secondary">DevOps</Badge>
             <Badge variant="secondary">Full-Stack</Badge>
-            <Badge variant="secondary">TypeScript</Badge>
+            <Badge variant="secondary">TensorFlow</Badge>
+            <Badge variant="secondary">Keras</Badge>
+            <Badge variant="secondary">PyTorch</Badge>
+            <Badge variant="secondary">ML</Badge>
           </div>
         </div>
       </div>
