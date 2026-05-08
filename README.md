@@ -1,35 +1,119 @@
-# v0-merph-dev-profile
+<div align="center">
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+# Merphy Mademba
 
-## Built with v0
+### Data Scientist · Ingénieur Logiciel · IA & DevOps
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+**@Merph-dev** · Dakar, Sénégal
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_n8zNkq3nlcLi8No2vdj4QctLaCTU)
+---
 
-## Getting Started
+</div>
 
-First, run the development server:
+## Qui suis-je
+
+Je suis **Merphy Mademba**, alias **Merph-dev**. Je conçois des systèmes intelligents, fiables et utiles — de la donnée brute jusqu'à la mise en production. Curieux par nature, je me situe à l'intersection du **code**, de la **donnée** et de l'**infrastructure**. J'accorde une attention particulière à la qualité, à l'automatisation et à l'impact concret de mes projets, tout en continuant à explorer de nouvelles technologies pour repousser mes limites.
+
+---
+
+## Competences
+
+### Data Science & Intelligence Artificielle
+
+| Domaine | Technologies |
+|---|---|
+| Machine Learning / Deep Learning | TensorFlow, Keras, PyTorch, Scikit-learn |
+| Data Science | Python, Pandas, NumPy, Matplotlib, Seaborn |
+| IA appliquee | NLP, Computer Vision, Modeles predictifs |
+
+### Ingenierie Logicielle (Full-Stack)
+
+| Domaine | Technologies |
+|---|---|
+| Frontend | React, Next.js, TypeScript, Tailwind CSS |
+| Backend | Node.js, Python, API REST, Bases de donnees |
+| UI / UX | Radix UI, shadcn/ui, Framer Motion |
+
+### DevOps & Infrastructure
+
+| Domaine | Technologies |
+|---|---|
+| Cloud & Deploiement | Vercel, Docker, CI/CD |
+| Versionnement & Collaboration | Git, GitHub |
+| Monitoring & Qualite | Analytics, Testing, Linting |
+
+---
+
+## Parcours Academique
+
+**Universite ENSUP Afrique — Dakar**
+
+- **En cours** — Master en Entrepreneuriat et Creation d'Entreprises
+- **Obtenue** — Licence en Administration, Gestion des Collectivites
+
+---
+
+## Ce Projet
+
+Ce depot est le **profil en ligne** de Merph-dev, construit avec :
+
+- **Next.js 16** (App Router, Server Components)
+- **React 19** + **TypeScript**
+- **Tailwind CSS 4** + **shadcn/ui** (composants Radix)
+- **next-themes** (theme sombre)
+- **Formspree** (formulaire de contact)
+- **Vercel Analytics** (suivi en production)
+
+### Architecture
+
+```
+app/
+  layout.tsx          → Layout racine (meta SEO, polices Geist, theme sombre)
+  page.tsx            → Page principale (composition des sections)
+  globals.css         → Variables CSS, animations, theme sombre
+components/
+  profile-header.tsx  → Banniere, avatar, identite, badges tech
+  profile-bio.tsx     → Biographie + parcours academique
+  profile-contact.tsx → Coordonnees, reseaux sociaux, lien portfolio
+  contact-form.tsx    → Formulaire de contact (Formspree)
+  theme-provider.tsx  → Provider next-themes
+  ui/                 → Composants shadcn/ui reutilisables
+```
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Cloner le depot
+git clone https://github.com/FullStackFlow-dev/v0-merph-dev-profile.git
+
+# Installer les dependances
+pnpm install
+
+# Lancer le serveur de developpement
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) pour voir le resultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-## Learn More
+## Me Contacter
 
-To learn more, take a look at the following resources:
+| Canal | Lien |
+|---|---|
+| Email | [merphy97@gmail.com](mailto:merphy97@gmail.com) |
+| Telephone | +221 76 558 78 77 |
+| GitHub | [FullStackFlow-dev](https://github.com/FullStackFlow-dev) |
+| LinkedIn | [Merph-dev](https://linkedin.com/in/Merph-dev) |
+| X (Twitter) | [@Merph-dev](https://x.com/Merph-dev) |
+| Instagram | [@Merph-dev](https://instagram.com/Merph-dev) |
+| Discord | Merph-dev |
+| Portfolio | [merph-dev.vercel.app](https://merph-dev.vercel.app) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+---
 
-<a href="https://v0.app/chat/api/kiro/clone/FullStackFlow-dev/v0-merph-dev-profile" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+<div align="center">
+
+**Concu et developpe par Merphy Mademba — Dakar, Senegal**
+
+</div>
