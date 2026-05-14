@@ -55,7 +55,7 @@ export function ProfileBio() {
             <li className="flex flex-col gap-0.5 md:flex-row md:items-baseline md:gap-3">
               <span className="shrink-0 font-mono text-xs text-muted-foreground">En cours</span>
               <span className="text-sm text-foreground">
-                Master en Entrepreneuriat et Création d&apos;Entreprises
+                Master 1 & 2 en cours MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises) 
               </span>
             </li>
             {/* Diplôme obtenu */}
