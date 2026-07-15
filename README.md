@@ -101,8 +101,8 @@ Ouvrir [http://localhost:3000](http://localhost:3000) pour voir le resultat.
 
 | Canal | Lien |
 |---|---|
-| Email | [merphy97@gmail.com](mailto:merphy97@gmail.com) |
-| Telephone | +221 76 558 78 77 |
+| Email | [merphy.softwareengineer@gmail.com](mailto:merphy.softwareengineer@gmail.com) |
+| Telephone | +221 76 558 78 77 | 77 458 78 77
 | GitHub | [FullStackFlow-dev](https://github.com/FullStackFlow-dev) |
 | LinkedIn | [Merph-dev](https://linkedin.com/in/Merph-dev) |
 | X (Twitter) | [@Merph-dev](https://x.com/Merph-dev) |
