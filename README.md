@@ -108,7 +108,7 @@ Ouvrir [http://localhost:3000](http://localhost:3000) pour voir le resultat.
 | X (Twitter) | [@Merph-dev](https://x.com/Merph-dev) |
 | Instagram | [@Merph-dev](https://instagram.com/Merph-dev) |
 | Discord | Merph-dev |
-| Portfolio | [merph-dev.vercel.app](https://merph-dev.vercel.app) |
+| Portfolio | [merph-dev-profile.vercel.app](https://merph-dev-profile.vercel.app/) |
 
 ---
 
