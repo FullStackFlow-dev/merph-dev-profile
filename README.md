@@ -30,7 +30,7 @@ Je suis **Merphy Mademba**, alias **Merph-dev**. Je conçois des systèmes intel
 
 | Domaine | Technologies |
 |---|---|
-| Frontend | React, Next.js, TypeScript, Tailwind CSS |
+| Frontend | React, Next.js, Tailwind CSS |
 | Backend | Node.js, Python, API REST, Bases de donnees |
 | UI / UX | Radix UI, shadcn/ui, Framer Motion |
 
@@ -48,7 +48,7 @@ Je suis **Merphy Mademba**, alias **Merph-dev**. Je conçois des systèmes intel
 
 **Universite ENSUP Afrique — Dakar**
 
-- **En cours** — Master en Entrepreneuriat et Creation d'Entreprises
+- **En cours** — Master en Méthodes Informatiques Appliquées à la Gestion des Entreprises
 - **Obtenue** — Licence en Administration, Gestion des Collectivites
 
 ---
