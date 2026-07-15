@@ -2,7 +2,7 @@
 
 # Merphy Mademba
 
-### Data Scientist · Ingénieur Logiciel · IA & DevOps
+### Ingénieur Logiciel Full Stack · Data · IA & DevOps
 
 **@Merph-dev** · Dakar, Sénégal
 
